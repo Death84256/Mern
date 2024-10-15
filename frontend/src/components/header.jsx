@@ -1,46 +1,79 @@
-import React, { useState } from "react";
-import {HomeIcon, AcademicCapIcon, DocumentIcon, FolderIcon} from '@heroicons/react/24/outline'
+import React, { useState, useEffect } from "react";
+import { HomeIcon, AcademicCapIcon, DocumentIcon, FolderIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const header = () => {
+const Header = () => {
   const [activeLink, setActiveLink] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Load the active link from local storage if available
+    const savedLink = localStorage.getItem("activeLink") || "home"; // Default to 'home'
+    setActiveLink(savedLink);
+  }, []);
 
   const handleClick = (link) => {
     setActiveLink(link);
+    setIsMenuOpen(false);
+    localStorage.setItem("activeLink", link); // Save the active link to local storage
   };
+
   return (
-    <div className="flex flex-col md:flex-row justify-center top-0 right-0 absolute items-center border-b border-b-sky-700 shadow-md shadow-sky-500 p-2 w-dvw">
-      <div className="flex space-x-4 mx-16 px-16 w-auto justify-center items-center">
-        <a
-          onClick={() => handleClick('home')}
-          className={`border-2 border-transparent rounded-lg flex justify-center items-center p-2 hover:border-sky-500 hover:bg-gradient-to-t from-sky-600 via-sky-400 to-sky-200 ${activeLink === 'home' ? 'active' : ''}`}
+    <>
+      <nav className="fixed top-0 left-0 w-full bg-gray-800 text-white border-b border-b-sky-700 shadow-md shadow-sky-500 p-4">
+        <div className="flex justify-between items-center">
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-white focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <XMarkIcon className="w-8 h-8" />
+              ) : (
+                <Bars3Icon className="w-8 h-8" />
+              )}
+            </button>
+          </div>
+          <div className="text-lg font-bold absolute top-[19px] left-12">Logo</div>
+        </div>
+        <div
+          className={`md:mt-0 flex flex-col md:flex-row md:items-center md:space-x-4 md:space-y-0 justify-center w-dvw md:flex ${isMenuOpen ? "block" : "hidden"} md:flex`}
         >
-          <HomeIcon className="size-10 px-2"/>
-          Home
-        </a>
-        <a
-          onClick={() => handleClick('projects')}
-          className={`border-2 border-transparent rounded-lg flex justify-center items-center p-2 hover:border-sky-500 hover:bg-gradient-to-t from-sky-600 via-sky-400 to-sky-200 ${activeLink === 'projects' ? 'active' : ''}`}
-        >
-          <FolderIcon className="size-10 px-2"/>
-          Projects
-        </a>
-        <a
-          onClick={() => handleClick('education')}
-          className={`border-2 border-transparent rounded-lg flex justify-center items-center p-2 hover:border-sky-500 hover:bg-gradient-to-t from-sky-600 via-sky-400 to-sky-200 ${activeLink === 'education' ? 'active' : ''}`}
-        >
-          <AcademicCapIcon className="size-10 px-2"/>
-          Education
-        </a>
-        <a
-          onClick={() => handleClick('resume')}
-          className={`border-2 border-transparent rounded-lg flex justify-center items-center p-2 hover:border-sky-500 hover:bg-gradient-to-t from-sky-600 via-sky-400 to-sky-200 ${activeLink === 'resume' ? 'active' : ''}`}
-        >
-          <DocumentIcon className="size-10 px-2"/>
-          Resume
-        </a>
-      </div>
-    </div>
+          <a
+            href="#home"
+            onClick={() => handleClick("home")}
+            className={`p-2 flex justify-center items-center ${activeLink === "home" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
+          >
+            <HomeIcon className="w-8 h-8 pr-2" />
+            Home
+          </a>
+          <a
+            href="#projects"
+            onClick={() => handleClick("projects")}
+            className={`p-2 flex justify-center items-center ${activeLink === "projects" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
+          >
+            <FolderIcon className="w-8 h-8 pr-2" />
+            Projects
+          </a>
+          <a
+            href="#education"
+            onClick={() => handleClick("education")}
+            className={`p-2 flex justify-center items-center ${activeLink === "education" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
+          >
+            <AcademicCapIcon className="w-8 h-8 pr-2" />
+            Education
+          </a>
+          <a
+            href="#resume"
+            onClick={() => handleClick("resume")}
+            className={`p-2 flex justify-center items-center ${activeLink === "resume" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
+          >
+            <DocumentIcon className="w-8 h-8 pr-2" />
+            Resume
+          </a>
+        </div>
+      </nav>
+    </>
   );
 };
 
-export default header;
+export default Header;
