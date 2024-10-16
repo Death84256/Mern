@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HomeIcon, AcademicCapIcon, DocumentIcon, FolderIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon, AcademicCapIcon, DocumentIcon, FolderIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -39,12 +39,12 @@ const Header = () => {
           className={`md:mt-0 flex flex-col md:flex-row md:items-center md:space-x-4 md:space-y-0 justify-center w-dvw md:flex ${isMenuOpen ? "block" : "hidden"} md:flex`}
         >
           <a
-            href="#home"
-            onClick={() => handleClick("home")}
-            className={`p-2 flex justify-center items-center ${activeLink === "home" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
+            href="#aboutMe"
+            onClick={() => handleClick("aboutMe")}
+            className={`p-2 flex justify-center items-center ${activeLink === "aboutMe" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
           >
-            <HomeIcon className="w-8 h-8 pr-2" />
-            Home
+            <UserCircleIcon className="w-8 h-8 pr-2" />
+            About Me
           </a>
           <a
             href="#projects"
