@@ -3,7 +3,7 @@ import Header from "../components/header";
 import ChatBubble from "../components/chatBubble";
 import Logo from "../components/logo";
 import { TypeAnimation } from "react-type-animation";
-const Home = () => {
+const About = () => {
   return (
     <>
       
@@ -43,4 +43,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;
