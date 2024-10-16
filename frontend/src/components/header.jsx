@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { UserCircleIcon, AcademicCapIcon, DocumentIcon, FolderIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon, BriefcaseIcon, DevicePhoneMobileIcon, FolderIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -39,7 +39,7 @@ const Header = () => {
           className={`md:mt-0 flex flex-col md:flex-row md:items-center md:space-x-4 md:space-y-0 justify-center w-dvw md:flex ${isMenuOpen ? "block" : "hidden"} md:flex`}
         >
           <a
-            href="#aboutMe"
+            href="aboutMe"
             onClick={() => handleClick("aboutMe")}
             className={`p-2 flex justify-center items-center ${activeLink === "aboutMe" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
           >
@@ -47,7 +47,7 @@ const Header = () => {
             About Me
           </a>
           <a
-            href="#projects"
+            href="projects"
             onClick={() => handleClick("projects")}
             className={`p-2 flex justify-center items-center ${activeLink === "projects" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
           >
@@ -55,20 +55,20 @@ const Header = () => {
             Projects
           </a>
           <a
-            href="#education"
+            href="education"
             onClick={() => handleClick("education")}
             className={`p-2 flex justify-center items-center ${activeLink === "education" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
           >
-            <AcademicCapIcon className="w-8 h-8 pr-2" />
-            Education
+            <BriefcaseIcon className="w-8 h-8 pr-2" />
+            Experience
           </a>
           <a
-            href="#resume"
+            href="resume"
             onClick={() => handleClick("resume")}
             className={`p-2 flex justify-center items-center ${activeLink === "resume" ? "text-sky-500 border-b-2 border-sky-500" : "border-b-2 border-transparent"}`}
           >
-            <DocumentIcon className="w-8 h-8 pr-2" />
-            Resume
+            <DevicePhoneMobileIcon className="w-8 h-8 pr-2" />
+            Contacts
           </a>
         </div>
       </nav>
