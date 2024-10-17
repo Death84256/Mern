@@ -5,6 +5,7 @@ import Header from "./components/header"
 import Projects from './pages/Projects'
 import Contact from './pages/Contacts'
 import Experience from './pages/Experience'
+import Card from  './components/card'
 
 function App() {
 
