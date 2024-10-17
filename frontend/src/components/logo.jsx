@@ -19,21 +19,26 @@ import Abap from "../images/logo/abap.png";
 const logo = () => {
   return (
     <>
-        <div className="flex justify-evenly items-center my-2 border-0 border-sky-500">
-          <img src={Net} alt=".Net" className="w-16 h-16" />
+      <div className="justify-center items-center z-10[]">
+        <div className="flex justify-around my-2 border-0 border-sky-500">
+          <img
+            src={Net}
+            alt=".Net"
+            className="w-16 h-16 hover:w-17 hover:h-17"
+          />
           <img src={Bootstrap} alt="Bootstrap" className="w-16 h-16" />
           <img src={Css} alt="Css" className="w-16 h-16" />
           <img src={Csharp} alt="C#" className="w-16 h-16" />
           <img src={Git} alt="Git" className="w-16 h-16" />
         </div>
-        <div className="flex justify-evenly items-center my-2 border-0 border-sky-500">
+        <div className="flex justify-evenly my-2 border-0 border-sky-500">
           <img src={Github} alt="Github" className="w-16 h-16" />
           <img src={Java} alt="Java" className="w-16 h-16" />
           <img src={MySql} alt="MySql" className="w-16 h-16" />
           <img src={NodeJs} alt="NodeJs" className="w-16 h-16" />
           <img src={Html} alt="Html5" className="w-16 h-16" />
         </div>
-        <div className="flex justify-evenly items-center my-2 border-0 border-sky-500">
+        <div className="flex justify-evenly my-2 border-0 border-sky-500">
           <img src={Php} alt="Php" className="w-16 h-16" />
           <img src={Python} alt="Python" className="w-16 h-16" />
           <img src={ReactJs} alt="ReactJs" className="w-16 h-16" />
@@ -44,7 +49,7 @@ const logo = () => {
           <img src={Tailwind} alt="Tailwind" className="w-16 h-16" />
           <img src={Abap} alt="Abap" className="w-20 h-16" />
         </div>
-        
+      </div>
     </>
   );
 };
